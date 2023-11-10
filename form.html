@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <meta name="author" content="Jan Wiśniewski">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/black-tie/jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <title>Form</title>
+    <script>
+      $(function() {
+        $("#datepicker").datepicker();
+        $("#dialog").dialog();
+      });
+    </script>
+</head>
+<body>
+  <main>
+    <section class="section" id="form">
+      <header>
+        <h2>Form</h2>
+        <h2>申込書</h2>
+      </header>
+      <div class="form__header">Want to contact me?</div>
+      <div id="dialog" title="Hello World">
+        <p>Wazup bejing</p>
+      </div>
+      <form action="./odbierz.php" method="post" class="form">
+        <div class="form-row">
+          <label class="label" for="name">Name</label>
+          <input class="input" id="name" name="name" type="text">
+        </div>
+        <div class="form-row">
+          <label class="label" for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" placeholder="yanek@example.com">
+        </div>
+        <fieldset class="form-row">
+          <div class="label">Issue</div>
+          <div class="input">
+            <input id="issue-type-1" name="issue-type" type="radio" value="suggestion">
+            <label for="issue-type-1" class="radio-label">Suggestion</label>
+            <input id="issue-type-2"  name="issue-type" type="radio" value="question"  checked>
+            <label for="issue-type-2" class="radio-label">Question</label>
+          </div>
+        </fieldset>
+        <div class="form-row">
+          <label class="label" for="driving">I drive in:</label>
+          <select class="input" id="driving" name="language">
+            <option value="games">video games</option>
+            <option value="irl">real life</option>
+            <option value="games/irl">video games and real life</option>
+            <option value="none">I don't drive </option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="label" for="abstract">Abstract</label>
+          <textarea class="input" id="abstract" name="abstract"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="datepicker">Pick date</label>
+          <input name="date" type="text" id="datepicker">
+        </div>
+        <div class="form-row">
+          <div class="label"></div>
+          <label class="input" for="flat-out">
+            <input id="flat-out" name="flat-out" type="checkbox" value="is-mccarthy">
+            <span>I flat out when I'm in doubt.</span>
+          </label>
+        </div>
+        <div class='form-row'>
+          <div class="label"></div>
+          <div class="input">
+            <input class="input input--button button--reset" type="reset" value="Reset">
+            <button class="input input--button">Submit</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

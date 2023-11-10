@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sketch</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" type="module"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+  <header>
+    <h1>Sketch</h1>
+  </header>
+  <main>
+    <div id="canvas"></div>
+    <div id="toolbar">
+      <input id="color" type="color">
+      <input value="pen" id="pen" type="button">
+      <input value="eraser" id="eraser" type="button">
+      <input value="clear" id="clear" type="button">
+      <div class="tile-count">
+        <label id="tile-count-label" for="tile-count-input">NxN</label>
+        <input type="range" min="8" max="64" value="16" id="tile-count-input">
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

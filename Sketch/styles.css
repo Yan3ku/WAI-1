@@ -1,0 +1,105 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 62.5%;
+    --color-bg:     #1a1b26;
+    --color-text:   #c0caf5;
+    --color-blue:   #7aa2f7;
+    --color-magenta:#bb9af7;
+}
+
+body {
+	font-size: 1.8rem;
+	font-family: monospace;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+}
+
+header {
+    width: min(750px - 10rem, 100%);
+	font-size: 2.5rem;
+	margin: 4rem auto;
+	text-align: center;
+}
+@media only screen and (min-width: 750px) {
+    header { text-align: left; }
+}
+
+
+main {
+	margin: 0 auto;
+	width: min(750px, 100%);
+	display: flex;
+	padding: 0 4rem;
+    margin-bottom: 2rem;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+#toolbar {
+	flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#toolbar input {
+    width: 200px;
+}
+
+#toolbar label {
+    margin-bottom: 1rem;
+    font-size: xx-large;
+}
+
+#toolbar input[type="button"],
+#toolbar input[type="color"] {
+    background-color: var(--color-text);
+    border: 2px solid var(--color-blue);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#toolbar input.active-mode {
+    background-color: var(--color-blue);
+}
+
+.tile-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#toolbar input[type="color"] {
+    padding: 0;
+    height: 5rem;
+}
+
+
+#toolbar input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+
+#canvas {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 3 1 350px;
+	aspect-ratio: 1 / 1;
+    background-color: #eeeeee;
+}
+
+#canvas > div {
+    background-color: #eeeeee;
+}
+
