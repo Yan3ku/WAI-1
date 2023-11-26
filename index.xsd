@@ -1,0 +1,196 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xs:attribute name="title" type="shortString" />
+    <xs:attribute name="lang" type="langType" />
+
+    <xs:attributeGroup name="textData">
+        <xs:attribute ref="title" use="required" />
+        <xs:attribute ref="lang" />
+    </xs:attributeGroup>
+
+    <xs:element name="page" type="pageType" />
+
+    <xs:simpleType name="coordinates">
+        <xs:list itemType="xs:double"></xs:list>
+    </xs:simpleType>
+
+    <xs:element name="id">
+        <xs:simpleType>
+            <xs:union memberTypes="idbyno idbystring" />
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:simpleType name="idbyno">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:maxInclusive value="999" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="idbystring">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="#[0-9]+"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="pageType">
+        <xs:sequence>
+            <xs:element name="author">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element ref="id"></xs:element>
+                        <xs:element name="name">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[a-zA-Z]+" />
+                                    <xs:maxLength value="128"></xs:maxLength>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="date">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:date">
+                                    <xs:minInclusive value="1920-01-01" />
+                                    <xs:maxInclusive value="2025-12-31" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="updatedCount">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:minInclusive value="0" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="encoding">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="utf-8" />
+                                    <xs:enumeration value="utf-16" />
+                                    <xs:enumeration value="iso1925" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="cords" type="coordinates"></xs:element>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="subpage" type="subpageType" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attributeGroup ref="textData" />
+    </xs:complexType>
+
+    <xs:complexType name="subpageType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="section" type="sectionType" maxOccurs="unbounded" />
+            <xs:element ref="form"/>
+        </xs:choice>
+        <xs:attributeGroup ref="textData" />
+        <xs:attribute name="is-index" type="indexType" />
+        <xs:attribute name="easter-egg" type="easterEggType" />
+        <xs:attribute name="coolness" type="coolnessLevelType" default="0" />
+    </xs:complexType>
+    
+    <xs:complexType name="sectionType">
+        <xs:sequence>
+            <xs:element name="about" type="xs:string" minOccurs="0" />
+            <xs:element name="persons" type="personsType" minOccurs="0" />
+            <xs:element name="media" type="mediaType" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string" />
+    </xs:complexType>
+
+    <xs:element name="form" type="formType" />
+
+    <xs:complexType name="mediaType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="image" type="adressType" maxOccurs="unbounded"/>
+            <xs:element name="video" type="adressType" maxOccurs="unbounded"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="adressType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="link" type="xs:anyURI"/>
+                <xs:attribute name="source" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="personsType">
+        <xs:sequence>
+            <xs:element name="person" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                        <xs:element name="about" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="gender" type="genderType"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    
+    <xs:complexType name="formType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="inputString">
+                <xs:complexType>
+                    <xs:attribute name="label" type="shortString"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inputRadio" type="option"/>
+            <xs:element name="inputSelection" type="option"/>
+        </xs:choice>
+        <xs:attribute name="name" type="shortString"/>
+    </xs:complexType>
+    
+    <xs:complexType name="option">
+        <xs:sequence>
+            <xs:element name="option" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="label"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="genderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="man"/>
+            <xs:enumeration value="IDontKnowWhoIsThatCreature"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="coolnessLevelType">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="easterEggType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="shortString">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128"></xs:maxLength>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="langType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="en"/>
+            <xs:enumeration value="pl"/>
+            <xs:enumeration value="jp"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="indexType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

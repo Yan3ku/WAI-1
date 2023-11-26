@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page title="The Art of Touge" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd">
+    <author>
+        <name>Yanek</name>
+        <date>2023-11-23</date>
+        <encoding>utf-8</encoding>
+        <cords>23.3 125.3</cords>
+        <updatedCount>5</updatedCount>
+        <id>#1234</id>
+    </author>
+    <subpage title="Legenda Fujarskiego" easter-egg="yes" coolness="10">
+        <section title="Final moments of Fujarski Showdown">
+            <about>
+                Tadeusz Fujarski ściga się z Krzysztofem Tatarskim po tym jak jego ojciec -
+                Bogdan Fujarski - oferuje mu pełny bak jeśli wygra wyścig z E34. Wszyscy jednak
+                spodziewali się spotkać ojca Tadka, który w swoim czasie był legendarnym
+                kierowcą Fiata 125p. Krążą pogłoski, że Bogdan ścigał się kiedyś w
+                Stratopolonezie, czyli Polonezem z silnikiem Lancii Stratos (a tak naprawdę z
+                Ferrari Dino) z tyłu. Jego koledzy zaskoczeni przybyciem Tadeusza są na niego
+                wściekli za to, że on przyjechał zamiast jego ojca, ale on ich uspokaja mówiąc,
+                że dostarcza pierogi na tej przełęczy już od 5 lat. Oni zaskoczeni tym faktem
+                życzą mu powodzenia w wyścigu. Tuż przed wyścigiem poznaje się ze swoim rywalem:
+            </about>
+            <persons>
+                <person gender="man">
+                    <name>Tadeusz Fujarski</name>
+                    <about>
+                        Syn Bodgdana Fujarskiego, dawnego mistrza przełeczy.
+                    </about>
+                </person>
+                <person gender="man">
+                    <name>Krzysztofem Tatarskim</name>
+                    <about>
+                        Wyzywa Fujarskiego na pojedynek zeby udowodnich ze Klub
+                        Nocnych Zakapiorów jest najszybszy na wszystkich
+                        bieszczadzkich przeleczach.
+                    </about>
+                </person>
+            </persons>
+        </section>
+    </subpage>
+
+    <subpage title="The Art of Touge" is-index="yes" lang="en">
+        <section title="What is Touge?">
+            <about>
+                Chinese character 峠 touge means literally mountain road or
+                pass. Because of Japans unique geography consisting of islands
+                nearly 73% of land is mountainius and rugged. Because of this the
+                majority of roads in japans consists of sharp turn and hairpins to
+                reduce the difference in altitude needed to climb these roads. This
+                results in less wear on cars and increased safety due to lower speed
+                but ironically creates the perfect scenario for enthusiast to race
+                on.
+            </about>
+            <media>
+                <image link="assets/touge.gif" source="Initial D">AE86 vs GT-R battle</image>
+                <video link="assets/touge.gif" source="Initial D">AE86 vs GT-R battle</video>
+            </media>
+        </section>
+        
+        <section title="History">
+            <persons>
+                <person>
+                    <name>Kunimitsu Takahashi</name>
+                    <about>
+                        Japanese, motorcycling legend, was the foremost creator
+                        of drifting techniques in the 1970s. His legacy
+                        popularized the sport and give rise to many 走り屋
+                        hashirya, japanese street racers.
+                    </about>
+                </person>
+                <person>
+                    <name>Keiichi Tsuchiya </name>
+                    <about>
+                        Became particularly interested by Takahashi’s early
+                        drift techniques and began honing his drifting skills on
+                        these same mountain roads and quickly gained a
+                        reputation amongst the racing crowd as he took them to
+                        the next level. In 1987, several popular car magazines
+                        and tuning garages agreed to produce a video of
+                        Tsuchiya’s drifting skills in his Toyota AE86 (Corolla).
+                        The grainy low budget video, known as Pluspy, became an
+                        international hit and inspired many of the professional
+                        drifting drivers on the circuits today. Because of his
+                        flashy and fast driving Keiichi is known as the ドリフト
+                        キング - drift king.
+                    </about>
+                </person>
+            </persons>
+            <media>
+                <video link="https://youtu.be/p52vfE1ejaA" source="YouTube">Osaka Touge Drifting</video>
+                <video link="https://youtu.be/DHOkR8vrP94" source="YouTube">Keiichi Tsuchiya - Pluspy</video>
+            </media>
+        </section>
+
+        <section title="Cars">
+            <about>
+                Unlike straight line racing where a lot depends on outright
+                power, in Touge racing, other performance aspects will set your
+                car apart, especially handling and weight distribution.
+
+                For instance, a small, tossable car like the Toyota MR2, prone
+                to snap-oversteer, can beat a stock Mercedes AMG GT-R on a Touge
+                course with the proper tuning. The same is true for other
+                smaller cars such as the ever-popular AE86 and Honda S2000. Here
+                are examples of few iconic Touge cars.
+            </about>
+            <media>
+                <image link="assets/r34" source="local">GT-R</image>
+                <image link="assets/supra.jpg" source="local">Supra</image>
+            </media>
+        </section>
+
+        <form name="Contact Form">
+            <inputString label="Name"/>
+            <inputString label="Email"/>
+            <inputRadio label="Issue">
+                <option>Suggestion</option>
+                <option>Question</option>
+            </inputRadio>
+            <inputSelection label="I drive in:">
+                <option>video games</option>
+                <option>real life</option>
+                <option>video games and real life</option>
+                <option>I don't drive</option>
+            </inputSelection>
+        </form>
+    </subpage>
+</page>
